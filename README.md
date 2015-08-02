@@ -1,4 +1,4 @@
-# Charata
+# Charata [![Build Status](https://travis-ci.org/tehsis/charata.svg?branch=master)](https://travis-ci.org/tehsis/charata)
 
 Charata allows using incremental DOM in a easier way.
 
