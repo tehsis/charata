@@ -63,10 +63,10 @@ class TEXT {
   }
 }
 
-export function el (tag, elms, key, props) {
+export default function el (tag, elms, key, props) {
   return new EL(tag, elms, key, props);
 }
- 
+
 export function div (elms, key, props) {
   return el('div', elms, key, props);
 }
