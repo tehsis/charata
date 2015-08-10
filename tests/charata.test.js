@@ -1,5 +1,7 @@
 import assert from 'assert';
-import el from '../lib';
+import charata from '../lib';
+
+let {el, ul, li} = charata;
 
 describe('charata', () => {
   beforeEach(() => {
@@ -13,9 +15,11 @@ describe('charata', () => {
 
     assert.ok(myEl.textContent === 'hello world');
   });
-
+  
   it('should render elements with children', () => {
-    el('ul', el('li')).renderTo(document.body);
+    ul([
+      li('one')
+    ]).renderTo(document.body);
 
     let myUL = document.getElementsByTagName('ul');
     let myLI = document.getElementsByTagName('li');

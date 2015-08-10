@@ -1,5 +1,14 @@
 import ID from 'incremental-dom';
 
+// TODO: Complete
+const TAGS = ['div', 'span', 'ul', 'li', 
+              'form', 'input', 'button', 'i', 
+              'a', 'h1', 'h2', 'h3', 
+              'h4', 'h5', 'table', 'td', 'tr',
+              'tbody', 'thead'
+              ];
+
+
 /**
  * Represents a HTML Element
  */
@@ -63,46 +72,17 @@ class TEXT {
   }
 }
 
-export default function el (tag, elms, key, props) {
-  return new EL(tag, elms, key, props);
-}
+let pub = TAGS.reduce((prev, tag) => {
+  prev[tag] = (elms, key, props) => {
+    return new EL(tag, elms, key, props);
+  }
 
-export function div (elms, key, props) {
-  return el('div', elms, key, props);
-}
+  return prev;
+}, {});
 
-export function ul (elms, key, props) {
-  return el('ul', elms, key, props);
-}
 
-export function li (elms, key, props) {
-  return el('li', elms, key, props);
-}
+// Generic Element constructor
+pub.el = (tag, elms, key, props) => new EL(tag, elms, key, props);
 
-export function form (elms, key, props) {
-  return el('form', elms, key, props);
-}
+export default pub;
 
-export function button (elms, key, props) {
-  return el('button', elms, key, props);
-}
-
-export function input (key, props) {
-  return el('input', null, key, props);
-}
-
-export function i (elms, key, props) {
-  return el('i', elms, key, props);
-}
-
-export function a (elms, key, props) {
-  return el('a', elms, key, props);
-}
-
-export function h1 (elms, key, props) {
-  return el('h1', elms, key, props);
-}
-
-export function h4 (elms, key, props) {
-  return el('h4', elms, key, props);
-}
