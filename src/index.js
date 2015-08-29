@@ -1,14 +1,18 @@
 import ID from 'incremental-dom';
 
 // TODO: Complete
-const TAGS = ['div', 'span', 'ul', 'li', 
-              'form', 'button', 'i', 
-              'a', 'h1', 'h2', 'h3', 
-              'h4', 'h5', 'table', 'td', 'tr',
-              'tbody', 'thead'
-              ];
+const TAGS = [
+  'div', 'span', 'ul', 'li',
+  'form', 'button', 'i',
+  'a', 'h1', 'h2', 'h3',
+  'h4', 'h5', 'table', 'td', 'tr',
+  'tbody', 'thead'
+];
 
-const SELF_CLOSING_TAGS = ['input', 'img'];
+const SELF_CLOSING_TAGS = [
+  'input',
+  'img'
+];
 
 /**
  * Represents a HTML Element
@@ -85,7 +89,7 @@ let pub = TAGS.reduce((prev, tag) => {
 }, {});
 
 SELF_CLOSING_TAGS.reduce((prev, tag) => {
-  prev[tag] = (key, props) => {
+ prev[tag] = (key, props) => {
     return new EL(tag, null, key, props);
   }
 
@@ -96,4 +100,3 @@ SELF_CLOSING_TAGS.reduce((prev, tag) => {
 pub.el = (tag, elms, key, props) => new EL(tag, elms, key, props);
 
 export default pub;
-

@@ -1,7 +1,7 @@
 import assert from 'assert';
 import charata from '../lib';
 
-let {el, ul, li} = charata;
+let { el, ul, li } = charata;
 
 describe('charata', () => {
   beforeEach(() => {
